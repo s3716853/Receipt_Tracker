@@ -17,14 +17,13 @@ class GuiView():
     def __init__(self):
         self.__app = QApplication([])
         self.model = model()
-        self.model.add_person("Matt")
 
         self.__person_entry = person_entry(self.model)
-        self.__receipt_entry = receipt_entry(self.model)
-        self.__person_entry = person_entry(self.model)
+        
 
     def menu(self):
-        self.__person_entry.show()
+        self.__person_entry.exec()
+        self.__receipt_entry = receipt_entry(self.model)
         self.__receipt_entry.show()
         self.__app.exec_()
         #self.tracker()

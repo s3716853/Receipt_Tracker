@@ -1,6 +1,7 @@
-from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QHBoxLayout, QListWidget, QFormLayout, QLineEdit, QComboBox, QTabWidget
+from PyQt5.QtWidgets import QWidget, QPushButton, QHBoxLayout, QFormLayout, QLineEdit, QDialog
+from PyQt5.QtCore import Qt
 
-class person_entry(QWidget):
+class person_entry(QDialog):
    
     __receipt_name_entry = None
     __model = None
@@ -9,6 +10,8 @@ class person_entry(QWidget):
         super().__init__()
         self.__model = model
         self.setWindowTitle("Insert Names")
+        self.setFocusPolicy(Qt.StrongFocus)
+        self.setWindowFlags(Qt.WindowStaysOnTopHint)
         #self.name_entry()
 
         main_layout = QFormLayout()
