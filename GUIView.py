@@ -1,58 +1,37 @@
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QHBoxLayout, QListWidget, QFormLayout, QLineEdit, QComboBox, QTabWidget, QStackedWidget, QListWidget
 from PyQt5.QtCore import QObject, pyqtSignal
+
 from Model import model
-from InputForm import input_form
-from ReceiptPrintOut import receipt_printout
 from PersonEntry import person_entry
-from MenuBar import menu_bar
+from ReceiptEntry import receipt_entry
 
 class GuiView():
     
     model = None
-    stack = None
+    __receipt_entry = None
+    __person_entry = None
+    __app = None
 
     #https://www.tutorialspoint.com/pyqt/pyqt_basic_widgets.htm
 
     def __init__(self):
+        self.__app = QApplication([])
         self.model = model()
+        self.model.add_person("Matt")
+
+        self.__person_entry = person_entry(self.model)
+        self.__receipt_entry = receipt_entry(self.model)
+        self.__person_entry = person_entry(self.model)
 
     def menu(self):
-        self.name_insert()
-        self.tracker()
-
-    def name_insert(self):
-        person_entry(self.model)
-
-    def tracker(self):
-        app = QApplication([])
-        window = QWidget()
-        window.setWindowTitle("Receipt Tracker")
+        self.__person_entry.show()
+        self.__receipt_entry.show()
+        self.__app.exec_()
+        #self.tracker()
         
-        outer_layout = QVBoxLayout()
-        main_layout = QHBoxLayout()
-        outer_layout.addWidget(menu_bar(self.model))
-        outer_layout.addLayout(main_layout)
+    # def name_insert(self):
+    #     person_entry(self.model).name_entry()
 
-        leftlist = QComboBox()
-        leftlist.adjustSize()
-        leftlist.currentIndexChanged.connect(self.display)
-
-        self.stack = QStackedWidget()
-        for name in self.model.get_names():
-            self.stack.addWidget(receipt_printout(name, self.model))
-            leftlist.addItem(name)
-        
-        receipt_layout = QVBoxLayout()
-        receipt_layout.addWidget(leftlist)
-        receipt_layout.addWidget(self.stack)
-
-        main_layout.addLayout(receipt_layout)
-
-        main_layout.addWidget(input_form(self.model))
-
-        window.setLayout(outer_layout)
-        window.show()
-        app.exec_()
-
-    def display(self,i):
-        self.stack.setCurrentIndex(i)
+    # def tracker(self):
+    #     pass
+    #     #window.show()

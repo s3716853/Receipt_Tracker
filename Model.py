@@ -62,6 +62,11 @@ class model():
     def add_person(self, name):
         if name not in self.get_names():
             self.receipts.add(ReceiptTracker(name))
+    
+    # def remove_person(self, name):
+    #     for receipt in self.receipts:
+    #         if receipt.name == name:
+    #             receipts.remove(receipt)
 
     def get_total(self, name):
         total = 0
