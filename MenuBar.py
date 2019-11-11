@@ -16,7 +16,6 @@ class menu_bar(QMenuBar):
 
     def add_new_person(self):
         print("ADD")
-        
-        #person_entry(self.model).name_entry()
+        self.model.add_person("testvalue")
 
 

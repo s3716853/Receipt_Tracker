@@ -63,7 +63,7 @@ class model():
 
     def add_person(self, name):
         print(name)
-        if name not in self.get_names():
+        if name != "" and name not in self.get_names():
             self.receipts.add(ReceiptTracker(name))
         for listener in self.person_change_listeners:
             listener.person_update(self)
