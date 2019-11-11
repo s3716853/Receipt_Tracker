@@ -19,11 +19,11 @@ class GuiView():
         self.model = model()
 
         self.__person_entry = person_entry(self.model)
+        self.__receipt_entry = receipt_entry(self.model)
         
 
     def menu(self):
         self.__person_entry.exec()
-        self.__receipt_entry = receipt_entry(self.model)
         self.__receipt_entry.show()
         self.__app.exec_()
         #self.tracker()
