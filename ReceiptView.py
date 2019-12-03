@@ -13,7 +13,7 @@ class receipt_view(QWidget, person_change_listener):
         super().__init__()
         self.__model = model
         self.__model.add_person_change_listeners(self)
-        self.__receipt_printouts = set()
+        self.__receipt_printouts = list()
         # self.setWindowTitle("Receipt Tracker")
 
         self.__person_list = QComboBox()
@@ -47,7 +47,7 @@ class receipt_view(QWidget, person_change_listener):
                 if name == printout.name:
                     in_set = True
             if not in_set:
-                self.__receipt_printouts.add(receipt_printout(name, model))
+                self.__receipt_printouts.append(receipt_printout(name, model))
                 self.__person_list.addItem(name)
         
         for printout in self.__receipt_printouts:

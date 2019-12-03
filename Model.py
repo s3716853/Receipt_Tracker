@@ -7,14 +7,14 @@ class model():
     person_change_listeners = None
 
     def __init__(self):
-        self.receipts = set()
+        self.receipts = list()
         self.receipt_change_listeners = set()
         self.person_change_listeners = set()
 
     def get_names(self):
-        names = set()
+        names = list()
         for receipt in self.receipts:
-            names.add(receipt.get_name())
+            names.append(receipt.get_name())
         
         return names
 
@@ -64,7 +64,7 @@ class model():
     def add_person(self, name):
         print(name)
         if name != "" and name not in self.get_names():
-            self.receipts.add(ReceiptTracker(name))
+            self.receipts.append(ReceiptTracker(name))
         for listener in self.person_change_listeners:
             listener.person_update(self)
     
