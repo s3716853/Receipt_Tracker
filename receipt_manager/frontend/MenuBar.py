@@ -1,5 +1,7 @@
 from PyQt5.QtWidgets import QWidget, QMenuBar
 
+from frontend.PersonEntry import person_entry
+
 class menu_bar(QMenuBar):
     model = None
     def __init__(self, model):
@@ -15,5 +17,6 @@ class menu_bar(QMenuBar):
 
     def add_new_person(self):
         print("ADD")
+        self.model.add_person("testvalue")
 
 

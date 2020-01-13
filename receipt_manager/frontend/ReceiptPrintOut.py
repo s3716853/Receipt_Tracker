@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QHBoxLayout, QListWidget, QFormLayout, QLineEdit, QComboBox, QTabWidget
-from ReceiptChangeListener import receipt_change_listener
+
+from frontend.ReceiptChangeListener import receipt_change_listener
 
 class receipt_printout(QWidget, receipt_change_listener):
 

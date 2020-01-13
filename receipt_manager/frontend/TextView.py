@@ -1,5 +1,5 @@
-from Item import Item
-from ReceiptTracker import ReceiptTracker
+from backend.Item import Item
+from backend.ReceiptTracker import ReceiptTracker
 
 #https://pythonspot.com/python-database-programming-sqlite-tutorial/
 

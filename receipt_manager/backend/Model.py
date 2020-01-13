@@ -1,18 +1,20 @@
-from ReceiptTracker import ReceiptTracker
-from Item import Item
+from backend.ReceiptTracker import ReceiptTracker
+from backend.Item import Item
 
 class model():
     receipts = None
     receipt_change_listeners = None
+    person_change_listeners = None
 
     def __init__(self):
-        self.receipts = set()
+        self.receipts = list()
         self.receipt_change_listeners = set()
+        self.person_change_listeners = set()
 
     def get_names(self):
-        names = set()
+        names = list()
         for receipt in self.receipts:
-            names.add(receipt.get_name())
+            names.append(receipt.get_name())
         
         return names
 
@@ -60,8 +62,19 @@ class model():
         return receipt_lines_strings
 
     def add_person(self, name):
-        if name not in self.get_names():
-            self.receipts.add(ReceiptTracker(name))
+        print(name)
+        if name != "" and name not in self.get_names():
+            self.receipts.append(ReceiptTracker(name))
+        for listener in self.person_change_listeners:
+            listener.person_update(self)
+    
+    def add_person_change_listeners(self, listener):
+        self.person_change_listeners.add(listener)
+    
+    # def remove_person(self, name):
+    #     for receipt in self.receipts:
+    #         if receipt.name == name:
+    #             receipts.remove(receipt)
 
     def get_total(self, name):
         total = 0

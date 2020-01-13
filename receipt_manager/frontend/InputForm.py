@@ -1,7 +1,9 @@
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QHBoxLayout, QListWidget, QFormLayout, QLineEdit, QComboBox, QTabWidget
-from PersonSelectCheckboxes import person_select_checkboxes
+
+from frontend.PersonSelectCheckboxes import person_select_checkboxes
 
 class input_form(QWidget):
+    
     checkbox = None
     add_button = None
     model = None
@@ -11,7 +13,9 @@ class input_form(QWidget):
     def __init__(self, model):
         super().__init__()
         self.model = model
+
         self.checkbox = person_select_checkboxes(self.model.get_names())
+        self.model.add_person_change_listeners(self.checkbox)
         right__column_layout = QFormLayout()
         self.setLayout(right__column_layout)
 
