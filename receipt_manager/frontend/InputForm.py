@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QHBoxLayout, QListWidget, QFormLayout, QLineEdit, QComboBox, QTabWidget
-from PersonSelectCheckboxes import person_select_checkboxes
+
+from frontend.PersonSelectCheckboxes import person_select_checkboxes
 
 class input_form(QWidget):
     

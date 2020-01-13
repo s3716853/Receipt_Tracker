@@ -1,8 +1,9 @@
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QHBoxLayout, QListWidget, QFormLayout, QLineEdit, QComboBox, QTabWidget, QStackedWidget, QListWidget
 from PyQt5.QtCore import Qt
-from MenuBar import menu_bar
-from InputForm import input_form
-from ReceiptView import receipt_view
+
+from frontend.MenuBar import menu_bar
+from frontend.InputForm import input_form
+from frontend.ReceiptView import receipt_view
 
 class receipt_entry(QWidget):
 

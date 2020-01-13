@@ -1,4 +1,4 @@
-from ReceiptLine import ReceiptLine
+from backend.ReceiptLine import ReceiptLine
 
 class Receipt:
     __receipt_lines = None
