@@ -1,4 +1,4 @@
-from Receipt import Receipt
+from backend.Receipt import Receipt
 
 class ReceiptTracker():
     __receipt = None

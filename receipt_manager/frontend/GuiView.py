@@ -1,9 +1,9 @@
 from PyQt5.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QHBoxLayout, QListWidget, QFormLayout, QLineEdit, QComboBox, QTabWidget, QStackedWidget, QListWidget
 from PyQt5.QtCore import QObject, pyqtSignal
 
-from Model import model
-from PersonEntry import person_entry
-from ReceiptEntry import receipt_entry
+from backend.Model import model
+from frontend.PersonEntry import person_entry
+from frontend.ReceiptEntry import receipt_entry
 
 class GuiView():
     

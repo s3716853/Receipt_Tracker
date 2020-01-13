@@ -1,5 +1,5 @@
-from ReceiptTracker import ReceiptTracker
-from Item import Item
+from backend.ReceiptTracker import ReceiptTracker
+from backend.Item import Item
 
 class model():
     receipts = None

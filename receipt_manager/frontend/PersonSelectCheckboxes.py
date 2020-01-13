@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QVBoxLayout, QWidget, QCheckBox
-from PersonChangeListener import person_change_listener
+from frontend.PersonChangeListener import person_change_listener
 
 class person_select_checkboxes(QWidget, person_change_listener):
     
