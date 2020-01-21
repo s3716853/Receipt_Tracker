@@ -17,10 +17,10 @@ class Receipt:
         return string
 
     def to_string_set(self):
-        receipt_lines = set()
+        receipt_lines = list()
 
         for receipt_line in self.__receipt_lines:
-            receipt_lines.add(receipt_line.to_string())
+            receipt_lines.append(receipt_line.to_string())
 
         return receipt_lines
         

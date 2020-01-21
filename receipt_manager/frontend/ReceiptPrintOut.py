@@ -22,6 +22,7 @@ class receipt_printout(QWidget, receipt_change_listener):
     def receipt_update(self, model):
         self.item_list.clear()
         for receipt_line in model.receipt_to_string_set(self.name):
+            #print(receipt_line)
             self.item_list.addItem(receipt_line)
         total = "Total: " + str(model.get_total(self.name))
         self.item_list.addItem(total)
