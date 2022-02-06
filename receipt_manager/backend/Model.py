@@ -29,7 +29,7 @@ class model():
         for receipt in self.receipts:
             for person in people:
                 if person == receipt.get_name():
-                    receipt.add_receipt_line(shared_item, 1/(len(people)+1))
+                    receipt.add_receipt_line(shared_item, 1/(len(people)))
         
         self.update_receipt_listeners()
     
